@@ -345,7 +345,10 @@ export async function findTagFromReleases(
     owner,
     repo,
   })) {
-    const release = releases.find((release) => release.tag_name === tag);
+    const release = releases.find((release) => {
+      console.log(`Checking release |${release.tag_name}| against |${tag}|`);
+      return release.tag_name === tag
+    });
     if (release) {
       return release;
     }
