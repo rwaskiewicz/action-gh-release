@@ -350,7 +350,7 @@ export async function findTagFromReleases(
     console.log("TESTING RELEASES");
 
     const release = releases.find((release) => {
-      console.log(`Checking release |${release.tag_name}| against |${tag}|`);
+      // console.log(`Checking release |${release.tag_name}| against |${tag}|`);
 
       return release.tag_name === tag
     });
