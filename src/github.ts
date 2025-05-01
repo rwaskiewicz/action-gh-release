@@ -233,6 +233,7 @@ export const release = async (
     );
 
     if (_release === undefined) {
+      console.log('release is undefined')
       return await createRelease(
         tag,
         config,
@@ -313,6 +314,7 @@ export const release = async (
       throw error;
     }
 
+    console.log('second creation called')
     return await createRelease(
       tag,
       config,
@@ -379,8 +381,9 @@ async function createRelease(
   if (target_commitish) {
     commitMessage = ` using commit "${target_commitish}"`;
   }
+  console.trace();
   console.log(
-    `👩‍🏭 Creating new GitHub release for tag ${tag_name}${commitMessage}...`,
+    `👩‍🏭 !Creating new GitHub release for tag ${tag_name}${commitMessage}...`,
   );
   try {
     let release = await releaser.createRelease({
